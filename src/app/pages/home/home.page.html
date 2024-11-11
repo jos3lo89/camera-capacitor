@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>uso de la camara con capacitor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1>btn camara</h1>
+  <ion-button (click)="takePicture(cameraSoruce.Photos)">
+    ir a galeria
+  </ion-button>
+  <ion-button (click)="takePicture(cameraSoruce.Camera)">
+    tomar foto
+  </ion-button>
+</ion-content>
