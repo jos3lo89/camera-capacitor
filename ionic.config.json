@@ -1,0 +1,7 @@
+{
+  "name": "camara-v333",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
