@@ -18,16 +18,19 @@ if (environment.production) {
 ```ts
 import { Camera, CameraResultType } from '@capacitor/camera';
 
-const takePicture = async () => {
-  const image = await Camera.getPhoto({
-    quality: 90,
-    allowEditing: true,
-    resultType: CameraResultType.Uri
-  });
-  
-  var imageUrl = image.webPath;
+async takePicture(source: CameraSource) {
+    try {
+      const image = await Camera.getPhoto({
+        quality: 90,
+        resultType: CameraResultType.DataUrl,
+        source,
+      });
 
-  // Can be set to the src of an image now
-  imageElement.src = imageUrl;
-};
+      if (!image.dataUrl) return null;
+      return image.dataUrl;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
 ```
